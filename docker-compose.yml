@@ -1,0 +1,17 @@
+services:
+  federated_learning:
+    image: federated_learning:latest
+    container_name: federated_learning
+    volumes:
+      - ./data:/data
+      - ./logs:/logs
+      - ./models:/models
+      - ./src:/src
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      network: host
+      args:
+        - username=${USER}
+        - UID=${UID}
+        - GID=${GID}
