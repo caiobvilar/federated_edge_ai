@@ -14,8 +14,9 @@ docker run --tty --interactive \
 --device=/dev/video0:/dev/video0 \
 --env DISPLAY \
 --volume /tmp/.X11-unix \
+--volume /home/${USER}.ssh:/home/${USER}.ssh \
 --volume /dev:/dev \
---volume $(pwd)/../..:/home/${USER}/federate_edge_ai \
+--volume /home/${USER}/Development/federated_edge_ai:/home/${USER}/federated_edge_ai \
 --volume=/run/user/${UID}/pulse:/run/user/1000/pulse \
 --privileged \
 --group-add dialout \
